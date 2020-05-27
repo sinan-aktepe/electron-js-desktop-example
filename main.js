@@ -10,30 +10,30 @@ let mainWindow;
 
 app.on('ready', () => {
 
-    // EKRAN BOYUTLARINI GÖSTER
+    // SHOW WINDOW SIZE
     var sc = electron.screen;
     var mainScreen = sc.getPrimaryDisplay();
     var allScreens = sc.getAllDisplays();
     console.log(mainScreen, allScreens);
 
-    // PENCERENİN ÖZELLİKLERİ
+    // WINDOW PROPERTIES
     mainWindow = new BrowserWindow({width: 1024,height: 768,backgroundColor: '#687295', center: true,'min-height': 700,'min-width': 1200,});
 
-    mainWindow.loadURL("https://demos.creative-tim.com/paper-dashboard/examples/dashboard.html");
+    mainWindow.loadURL("yourUrl");
 
-    // CUSTOM MENÜYÜ DEFAULT YAPMA
+    // SET MENU AS DEFAULT
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
     Menu.setApplicationMenu(mainMenu);
 
 });
 
-// CUSTOM MENU OLUŞTURMA
+// CREATE CUSTOM MENU
 const mainMenuTemplate = [
     {
-        label: "Dosya",
+        label: "File",
         submenu: [
             {
-                label: "Çıkış",
+                label: "Exit",
                 accelerator: process.platform == "darwin" ? "Command+Q" : "Ctrl+Q",
                 role: "quit"
             }
